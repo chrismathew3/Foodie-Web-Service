@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Foodie-Web-Service{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .jumbotron {
+      height: 90vh;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="display-4" align="center">Foodie-Web-Service</h1>
+  <p class="lead" align="center">This is a simple REST API where you enter an address and nearby restaurants will be listed.</p>
+  <hr class="my-4" align="center">
+  <form class="input" method='POST' action='/' autocomplete="off" name="address">
+    <div class="form-group">
+      <div class="col-lg-12  mt-auto" >
+        <input class="form-control form-control-sm" type="text" placeholder="Enter Address" name="address" required='true' autocomplete="off" style="text-align:center">
+      </div>
+    </div>
+
+    </form>
+    {% with messages = get_flashed_messages() %}
+			{% for message in messages %}
+				<p class = 'font-weight-light'>{{message}}</p>
+			{% endfor %}
+		{% endwith %}
+</div>
+{% endblock %}
